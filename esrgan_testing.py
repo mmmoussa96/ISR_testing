@@ -11,6 +11,9 @@ sr_img = rrdn.predict(lr_img)
 sr_img_cleaned = Image.fromarray(sr_img)
 sr_img_cleaned.save("test_output/" + image_name + "_upscaled_RRDN.tif")
 
+bicubic_img = lr_img.resize(size=(lr_img.size[0]*2, lr_img.size[1]*2), resample=Image.BICUBIC)
+bicubic_img.save("test_output/" + image_name + "_bicubic.tif")
+
 
 """
 To predict on large images and avoid memory allocation errors, use the by_patch_of_size option for the predict method, for instance
