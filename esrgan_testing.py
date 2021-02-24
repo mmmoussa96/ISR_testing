@@ -10,7 +10,7 @@ sr_img = rrdn.predict(lr_img)
 sr_img_cleaned = Image.fromarray(sr_img)
 sr_img_cleaned.save("test_output/" + image_name + "_upscaled_RRDN.tif")
 
-bicubic_img = lr_img.resize(size=(img.size[0]*2, img.size[1]*2), resample=Image.BICUBIC)
+bicubic_img = img.resize(size=(img.size[0]*2, img.size[1]*2), resample=Image.BICUBIC)
 bicubic_img.save("test_output/" + image_name + "_bicubic.tif")
 
 
