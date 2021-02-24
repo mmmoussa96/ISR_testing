@@ -2,12 +2,13 @@ import numpy as np
 from PIL import Image
 from ISR.models import RRDN
 
-img = Image.open('images_test/biosphere7_mollweide.1505.tif')
+image_name = "biosphere7_mollweide.1505.tif"
+img = Image.open('images_test/' + image_name)
 lr_img = np.array(img)
 
-rrdn = RRDN(weights='gans')
+rrdn = RRDN(weights="gans")
 sr_img = rrdn.predict(lr_img)
-Image.fromarray(sr_img)
+Image.save(Image.fromarray(sr_img), "test_output/" + image_name + "_upscaled_RRDN.tif")
 
 
 """
