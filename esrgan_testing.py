@@ -8,7 +8,8 @@ lr_img = np.array(img)
 
 rrdn = RRDN(weights="gans")
 sr_img = rrdn.predict(lr_img)
-Image.save(Image.fromarray(sr_img), "test_output/" + image_name + "_upscaled_RRDN.tif")
+sr_img_cleaned = Image.fromarray(sr_img)
+Image.save(sr_img_cleaned, "test_output/" + image_name + "_upscaled_RRDN.tif")
 
 
 """
